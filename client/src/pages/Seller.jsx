@@ -1,11 +1,11 @@
 /* eslint-disable */
-import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import Web3Context from "../contexts";
+import React, { useContext, useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import Web3Context from '../contexts';
 import {
   getSellerNFTs,
   getTokenDetails,
-} from "../contexts/useContract/readContract";
+} from '../contexts/useContract/readContract';
 
 function Navbutton(props) {
   return (
@@ -28,13 +28,17 @@ function WarrantyCount(props) {
   );
 }
 
+// pending warranty
 function PendingWarranty(props) {
   return (
     <>
-      <NavLink to={`/warranty/${props.id}`} className='bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2'>
-        <div className='flex justify-center items-center pl-5'>
-          <img className='w-10 h-10 rounded-full' src={props.img}/>
-          <span className='px-3'>{props.name}</span>
+      <NavLink
+        to={`/warranty/${props.id}`}
+        className="bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2"
+      >
+        <div className="flex justify-center items-center pl-5">
+          <img className="w-10 h-10 rounded-full" src={props.img} />
+          <span className="px-3">{props.name}</span>
         </div>
         <span className="pr-12">{props.status}</span>
         <span className="pr-5">#{props.id}</span>
@@ -42,13 +46,18 @@ function PendingWarranty(props) {
     </>
   );
 }
+
+// active warranty
 function ActiveWarranty(props) {
   return (
     <>
-      <NavLink to={`/warranty/${props.id}`} className='bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2'>
-        <div className='flex justify-center items-center pl-5'>
-          <img className='w-10 h-10 rounded-full' src={props.img}/>
-          <span className='px-3'>{props.name}</span>
+      <NavLink
+        to={`/warranty/${props.id}`}
+        className="bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2"
+      >
+        <div className="flex justify-center items-center pl-5">
+          <img className="w-10 h-10 rounded-full" src={props.img} />
+          <span className="px-3">{props.name}</span>
         </div>
         <span className="pr-12">{props.status}</span>
         <span className="pr-12">{props.expiry}</span>
@@ -57,13 +66,18 @@ function ActiveWarranty(props) {
     </>
   );
 }
+
+// expired warranty
 function ExpiredWarranty(props) {
   return (
     <>
-      <NavLink to={`/warranty/${props.id}`} className='bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2'>
-        <div className='flex justify-center items-center pl-5'>
-          <img className='w-10 h-10 rounded-full' src={props.img}/>
-          <span className='px-3'>{props.name}</span>
+      <NavLink
+        to={`/warranty/${props.id}`}
+        className="bg-secondary-4 hover:bg-tertiary border-2 hover:border-black mx-16 h-14 flex justify-between items-center rounded-full text-xl my-2"
+      >
+        <div className="flex justify-center items-center pl-5">
+          <img className="w-10 h-10 rounded-full" src={props.img} />
+          <span className="px-3">{props.name}</span>
         </div>
         <span className="pr-12">{props.status}</span>
         <span className="pr-5">#{props.id}</span>
@@ -76,11 +90,13 @@ function Seller() {
   const { connectWallet, account, Contract, sellerI } = useContext(Web3Context);
   const { add } = useParams();
   const [nfts, setNfts] = useState([]);
-  //console.log(account.currentAccount)
+
+  // get seller nfts useEffect
   useEffect(() => {
     getData();
-   // console.log(nfts);
   }, [Contract, account, sellerI]);
+
+  // get seller nfts
   const getData = async () => {
     const res = await getSellerNFTs(Contract, sellerI);
     //console.log(res)
@@ -112,7 +128,7 @@ function Seller() {
               src="https://res.cloudinary.com/doybtqm8h/image/upload/v1659257792/profile_rlizwd.png"
             />
             <div className="text-xl mb-3 text-center font-semibold mt-2">
-            Your Warranty Logs
+              Your Warranty Logs
             </div>
           </div>
         </div>
@@ -130,12 +146,12 @@ function Seller() {
               </div>
             ) : (
               <div className="mr-20 text-white">
-                Hey,{" "}
+                Hey,{' '}
                 {`${String(account.currentAccount).slice(0, 9)}...${String(
                   account.currentAccount
                 ).slice(String(account.currentAccount).length - 9)}`}
               </div>
-            )}{" "}
+            )}{' '}
           </div>
           <div className="w-full h-1/6 flex  items-center justify-start ml-20 text-xl font-bold my-4">
             Seller ID: {sellerI}
@@ -145,7 +161,7 @@ function Seller() {
             <WarrantyCount head="Expired Warranties" count="23" /> */}
           </div>
           <div id="pending">
-          <div className="text-xl pl-12 mt-10 mb-5 flex justify-evenly items-baseline">
+            <div className="text-xl pl-12 mt-10 mb-5 flex justify-evenly items-baseline">
               <div className="w-48 font-medium">Pending Warranty</div>
               <div className="w-5/6 h-px bg-black mr-20"></div>
             </div>
@@ -157,18 +173,28 @@ function Seller() {
             <div className="flex flex-col justify-evenly">
               {nfts.length &&
                 nfts
-                  .filter((res) => res.status == 0 ||res.status == 1)
+                  .filter((res) => res.status == 0 || res.status == 1)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, buyers,imageURI,tokenId } =
-                      obj;
-                     // console.log(tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/"))
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      buyers,
+                      imageURI,
+                      tokenId,
+                    } = obj;
+                    // console.log(tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/"))
 
                     return (
                       <PendingWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Pending"
                         id={tokenId}
                       />
@@ -192,21 +218,30 @@ function Seller() {
                 nfts
                   .filter((res) => res.status == 2)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, tokenId,buyers,imageURI } =
-                      obj;
-                      //const date = new Date(expiry*1000);
-                      var date = new Date(expiry*1000)
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      tokenId,
+                      buyers,
+                      imageURI,
+                    } = obj;
+                    //const date = new Date(expiry*1000);
+                    var date = new Date(expiry * 1000);
 
                     return (
                       <ActiveWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Active"
                         id={tokenId}
-                        expiry={String(date).slice(4,25)}
-                     
+                        expiry={String(date).slice(4, 25)}
                       />
                     );
                   })}
@@ -224,19 +259,29 @@ function Seller() {
             </div>
 
             <div className="flex flex-col justify-evenly">
-            {nfts.length &&
+              {nfts.length &&
                 nfts
                   .filter((res) => res.status == 3)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, tokenId,buyers,imageURI } =
-                      obj;
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      tokenId,
+                      buyers,
+                      imageURI,
+                    } = obj;
 
                     return (
                       <ExpiredWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Expired"
                         id={tokenId}
                       />
