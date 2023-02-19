@@ -30,7 +30,7 @@ interface INFTWarranty {
 }
 
 contract NFTResolver {
-    function checker(address contract_add)
+    function checkUpkeep(address contract_add)
         external
         view
         returns (bool canExec, bytes memory execPayload)
