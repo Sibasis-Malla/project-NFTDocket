@@ -1,12 +1,11 @@
 /* eslint-disable */
-import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import Web3Context from "../contexts";
+import React, { useContext, useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import Web3Context from '../contexts';
 import {
   buyerDetails,
-  getWarrantyDetails
-
-} from "../contexts/useContract/readContract";
+  getWarrantyDetails,
+} from '../contexts/useContract/readContract';
 
 function Navbutton(props) {
   return (
@@ -19,6 +18,7 @@ function Navbutton(props) {
   );
 }
 
+// count the number of warranties
 function WarrantyCount(props) {
   return (
     <>
@@ -29,6 +29,7 @@ function WarrantyCount(props) {
   );
 }
 
+// function to display pending warranty requests
 function PendingWarranty(props) {
   return (
     <>
@@ -46,6 +47,8 @@ function PendingWarranty(props) {
     </>
   );
 }
+
+// function to display active warranty requests
 function ActiveWarranty(props) {
   return (
     <>
@@ -64,6 +67,8 @@ function ActiveWarranty(props) {
     </>
   );
 }
+
+// function to display expired warranty requests
 function ExpiredWarranty(props) {
   return (
     <>
@@ -82,6 +87,7 @@ function ExpiredWarranty(props) {
   );
 }
 
+// main
 function Seller() {
   const { connectWallet, account, Contract } = useContext(Web3Context);
   const { add } = useParams();
@@ -90,10 +96,10 @@ function Seller() {
   useEffect(() => {
     // console.log(add)
     getData();
-   // console.log(nfts);
+    // console.log(nfts);
   }, [Contract, add]);
   const getData = async () => {
-    const res =  await buyerDetails(Contract,add);
+    const res = await buyerDetails(Contract, add);
     // console.log(res)
     setNfts(res);
   };
@@ -108,7 +114,7 @@ function Seller() {
           >
             NFTDocket
           </NavLink>
-  
+
           <Navbutton link="#active" content="Active Warranties" />
           <Navbutton link="#pending" content="Pending Warranties" />
           <Navbutton link="#expired" content="Expired Warranties" />
@@ -118,7 +124,7 @@ function Seller() {
               src="https://res.cloudinary.com/doybtqm8h/image/upload/v1659257792/profile_rlizwd.png"
             />
             <div className="text-xl mb-2 text-center font-semibold mt-2">
-            Your Warranty Logs
+              Your Warranty Logs
             </div>
           </div>
         </div>
@@ -136,12 +142,12 @@ function Seller() {
               </div>
             ) : (
               <div className="mr-20 text-white">
-                Hey,{" "}
+                Hey,{' '}
                 {`${String(account.currentAccount).slice(0, 9)}...${String(
                   account.currentAccount
                 ).slice(String(account.currentAccount).length - 9)}`}
               </div>
-            )}{" "}
+            )}{' '}
           </div>
           {/* <div className="w-full h-1/6 flex  items-center justify-evenly my-4">
             <button className='w-1/4 bg-secondary-3'>Active Warranties: 23</button>
@@ -162,18 +168,28 @@ function Seller() {
             <div className="flex flex-col justify-evenly">
               {nfts.length &&
                 nfts
-                  .filter((res) => res.status == 0 ||res.status == 1)
+                  .filter((res) => res.status == 0 || res.status == 1)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, buyers,imageURI,tokenId } =
-                      obj;
-                     // console.log(tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/"))
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      buyers,
+                      imageURI,
+                      tokenId,
+                    } = obj;
+                    // console.log(tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/"))
 
                     return (
                       <PendingWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Pending"
                         id={tokenId}
                       />
@@ -197,21 +213,30 @@ function Seller() {
                 nfts
                   .filter((res) => res.status == 2)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, tokenId,buyers,imageURI } =
-                      obj;
-                      //const date = new Date(expiry*1000);
-                      var date = new Date(expiry*1000)
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      tokenId,
+                      buyers,
+                      imageURI,
+                    } = obj;
+                    //const date = new Date(expiry*1000);
+                    var date = new Date(expiry * 1000);
 
                     return (
                       <ActiveWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Active"
                         id={tokenId}
-                        expiry={String(date).slice(4,25)}
-                     
+                        expiry={String(date).slice(4, 25)}
                       />
                     );
                   })}
@@ -229,19 +254,29 @@ function Seller() {
             </div>
 
             <div className="flex flex-col justify-evenly">
-            {nfts.length &&
+              {nfts.length &&
                 nfts
                   .filter((res) => res.status == 3)
                   .map((obj) => {
-                    const { expiry, status, creationTime, productId, tokenId,buyers,imageURI } =
-                      obj;
+                    const {
+                      expiry,
+                      status,
+                      creationTime,
+                      productId,
+                      tokenId,
+                      buyers,
+                      imageURI,
+                    } = obj;
 
                     return (
                       <ExpiredWarranty
                         img={imageURI}
-                        name=  {`${String(buyers[buyers.length-1]).slice(0, 5)}...${String(
-                          buyers[buyers.length-1]
-                        ).slice(String(buyers[buyers.length-1]).length - 5)}`}
+                        name={`${String(buyers[buyers.length - 1]).slice(
+                          0,
+                          5
+                        )}...${String(buyers[buyers.length - 1]).slice(
+                          String(buyers[buyers.length - 1]).length - 5
+                        )}`}
                         status="Expired"
                         id={tokenId}
                       />
