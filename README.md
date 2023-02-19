@@ -1,10 +1,12 @@
-
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- Other badges-->
+
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 ![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white)
@@ -16,6 +18,7 @@
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
 <!-- Other badges-->
 
 <br />
@@ -78,7 +81,6 @@ Following technologies and libraries are used for the development of this websit
 - [Gelato Ops](https://app.gelato.network/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
-
 ## Getting Started
 
 To setup the project locally the steps below.
@@ -123,7 +125,6 @@ To setup the project locally the steps below.
   dnf install git
 
 ```
-
 
 ### Running the project.
 
@@ -187,12 +188,12 @@ Once a warranty is activated by a owner in their dashboard the warranty also sho
 
 ## Future Scope
 
-* We can implement this in a Mobile Application to further increase the accessibility and use cases multifolds.
-* As, we are using Soulbound NFTs in the application this can also be used to issue certificates that are issued uniquely such as Degrees, Tickets, Citizenship and much more.
-* We can implement a Gamification in this platform in which every issued warranty NFT transfers some credits to the Seller which can later be redeemed on the same platform using different schemes. These credits can also be used as gas fees for issuing NFT Warranties by the sellers which will promote more and more businesses to implement the NFT Warranty system in their systems.
-* We can implement a marketplace to make the process truly one click. 
-* We can use the history tracking functionality to keep a track of sale which can be used in products like cars that frequently change hands.
-* As the marketplace is implemented we can also add the functionality of sending the NFT on the buyer’s mobile phone as a notification.
+- We can implement this in a Mobile Application to further increase the accessibility and use cases multifolds.
+- As, we are using Soulbound NFTs in the application this can also be used to issue certificates that are issued uniquely such as Degrees, Tickets, Citizenship and much more.
+- We can implement a Gamification in this platform in which every issued warranty NFT transfers some credits to the Seller which can later be redeemed on the same platform using different schemes. These credits can also be used as gas fees for issuing NFT Warranties by the sellers which will promote more and more businesses to implement the NFT Warranty system in their systems.
+- We can implement a marketplace to make the process truly one click.
+- We can use the history tracking functionality to keep a track of sale which can be used in products like cars that frequently change hands.
+- As the marketplace is implemented we can also add the functionality of sending the NFT on the buyer’s mobile phone as a notification.
 
 ## Contributors
 
@@ -203,9 +204,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-  <td align="center"><a href="https://github.com/sibasis-malla"><img src="https://avatars.githubusercontent.com/u/72388732?s=400&u=930397a888bc3792de7960e1acf4dfd100f75350&v=4" width="100px;" alt=""/><br /><sub><b>Sibasis Malla</b></sub></a><br /><a href="https://github.com/sibasis-malla/NFTDocket/commits?author=sibasis-malla" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/sibasis-malla"><img src="https://avatars.githubusercontent.com/u/84642011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sai Sambhab Chaini</b></sub></a><br /><a href="https://github.com/sibasis-malla/NFTDocket/commits?author=a-sambhab" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/akashsahu006"><img src="https://avatars.githubusercontent.com/u/82517683?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Akash Sahu</b></sub></a><br /><a href="https://github.com/sibasis-malla/NFTDocket/commits?author=akashsahu006" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sambit-sankalp"><img src="https://avatars.githubusercontent.com/u/82284130?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sambit Sankalp</b></sub></a><br /><a href="https://github.com/Sibasis-Malla/project-NFTDocket/commits?author=sambit-sankalp" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Sibasis-Malla"><img src="https://avatars.githubusercontent.com/u/72388732?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sibasis-Malla</b></sub></a><br /><a href="https://github.com/Sibasis-Malla/project-NFTDocket/commits?author=Sibasis-Malla" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/rituraj2000"><img src="https://avatars.githubusercontent.com/u/83244005?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rituraj Tripathy</b></sub></a><br /><a href="https://github.com/Sibasis-Malla/project-NFTDocket/commits?author=rituraj2000" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Bismay27"><img src="https://avatars.githubusercontent.com/u/84177372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bismay Pradhan</b></sub></a><br /><a href="https://github.com/Sibasis-Malla/project-NFTDocket/commits?author=Bismay27" title="Code">💻</a></td>
   </tr>
 </table>
 
