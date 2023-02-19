@@ -1,6 +1,17 @@
-import { NFTStorage, File, Blob } from 'nft.storage'
-// Paste your NFT.Storage API key into the quotes:
-const NFT_STORAGE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEFGMmVDM0Q4MkYxMUM1NjA1NWZBNWFkOGJEMmZlNGJDMTRkM0EwNjgiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0NjcyMjQwMTM5MCwibmFtZSI6Ik15c3RpcSJ9.9wx6DojaYvvPGdBQ5WPA5zjFpt3rbVaWDcVmwZilKRk'
-
-const client = new NFTStorage({ token: NFT_STORAGE_KEY })
-export default client
+//import {create} from 'ipfs-http-client'
+const ipfsClient = require('ipfs-http-client')
+const projectId = '277J4qfFtNMoU4VjPgwkSC7agwj'
+const projectSecret = '25dbbdefd169318ba0dd5d82708f080a'
+const auth =
+  'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64')
+//console.log(auth)
+const client = ipfsClient.create({
+  host: 'ipfs.infura.io',
+  port: 5001,
+  protocol: 'https',
+  headers: {
+    authorization: auth
+  },
+  apiPath: '/api/v0'
+})
+export default client; 

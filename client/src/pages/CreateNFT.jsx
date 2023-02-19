@@ -64,7 +64,7 @@ function CreateNFT() {
         
           name:"NFT Warranty",
           description:"This a NFT Warranty and Proof of Ownership of the following product",
-          image: Coverimage,
+          image: res,
           attributes: [
             {
                 "display_type": "date", 
@@ -79,10 +79,9 @@ function CreateNFT() {
           ],
         };
     
-        const result = await client.store(obj);
-        console.log(result);
+        const result = await client.add(JSON.stringify(obj));
         const str = 'ipfs://';
-        const finalResult = result.url;
+        const finalResult = str.concat(String(result.path));
         // console.log(result)
       //  console.log(finalResult);
       alert('NFT Data added');
