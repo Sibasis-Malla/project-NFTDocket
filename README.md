@@ -23,7 +23,6 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/a-sambhab/nft-warranty-market">
     <img src="https://res.cloudinary.com/dgy8ybeoy/image/upload/v1659287496/favicon_rjjovn.ico" alt="Logo" width="80">
   </a>
 
@@ -32,7 +31,7 @@
   <p align="center">
     The official repository for the website of NFTDocket
     <br />
-    <a href="https://nftdocket.vercel.app/">View Live</a>
+    <a href="https://project-nft-docket-r728ozcxd-sibasis-malla.vercel.app/">View Live</a>
   </p>
 </p>
 
